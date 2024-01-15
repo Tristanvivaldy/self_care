@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:self_care/presentation/pages/add_todo.dart' as addNew;
+import 'package:self_care/presentation/pages/add_todo.dart' as add_new;
 import 'package:self_care/presentation/providers/todo_data_provider.dart';
 import 'package:self_care/presentation/providers/user_data_provider.dart';
 
@@ -142,7 +142,7 @@ class WidgetContent extends ConsumerWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const addNew.TodoAddPage(),
+                              builder: (context) => const add_new.TodoAddPage(),
                             ),
                           );
                         },

@@ -39,6 +39,7 @@ dependencies:
   riverpod_generator: ^2.3.9
   supabase: ^1.11.11
   supabase_flutter: ^1.10.25
+  sensors: ^2.0.3
 
 dev_dependencies:
   flutter_lints: ^2.0.0

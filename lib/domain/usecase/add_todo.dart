@@ -3,15 +3,15 @@ import 'package:self_care/domain/usecase/add_todo_param.dart';
 
 import 'usecase.dart';
 
-class AddTodo implements Usecase<void, addTodoParams> {
+class AddTodo implements Usecase<void, AddTodoParams> {
   final TodoRepository todoRepository;
 
   AddTodo({required this.todoRepository});
 
   @override
-  Future<void> call(addTodoParams params) async {
+  Future<void> call(AddTodoParams params) async {
     await todoRepository.saveTodos(params.taskName, params.description,
-        params.dueDate, params.type, params.time, params.user_email);
+        params.dueDate, params.type, params.time, params.userEmail);
 
     return;
   }

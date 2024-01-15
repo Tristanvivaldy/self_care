@@ -32,13 +32,13 @@ class TodoData extends _$TodoData {
 
     AddTodo addTodo = ref.read(addTodoProvider);
 
-    await addTodo(addTodoParams(
+    await addTodo(AddTodoParams(
       taskName: taskName,
       description: description,
       dueDate: dueDate,
       type: type,
       time: time,
-      user_email: email,
+      userEmail: email,
     ));
 
     Todos todos = ref.read(todosProvider);

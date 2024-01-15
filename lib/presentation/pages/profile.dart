@@ -173,7 +173,7 @@ class WidgetContent extends ConsumerWidget {
                           height: MediaQuery.of(context).size.height * 0.14,
                           width: MediaQuery.of(context).size.width * 0.75 / 3,
                           decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 250, 250, 250),
+                              color: const Color.fromARGB(255, 250, 250, 250),
                               borderRadius: BorderRadius.circular(20)),
                           child: Column(children: [
                             Container(
@@ -209,7 +209,7 @@ class WidgetContent extends ConsumerWidget {
                           height: MediaQuery.of(context).size.height * 0.14,
                           width: MediaQuery.of(context).size.width * 0.75 / 3,
                           decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 250, 250, 250),
+                              color: const Color.fromARGB(255, 250, 250, 250),
                               borderRadius: BorderRadius.circular(20)),
                           child: Column(children: [
                             Container(
