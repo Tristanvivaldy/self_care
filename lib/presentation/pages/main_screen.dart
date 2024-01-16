@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:self_care/presentation/pages/healthy.dart';
 import 'package:self_care/presentation/pages/main_page.dart';
 import 'package:self_care/presentation/pages/profile.dart';
 import 'package:self_care/presentation/pages/to_do_list.dart';
@@ -16,7 +17,7 @@ class MainScreen extends ConsumerWidget {
     final bodies = [
       const MainPage(),
       const ToDoListPage(),
-      const Text("Health"),
+      HealthyPage(),
       const ProfilePage(),
     ];
     final indexBottomNavbar = ref.watch(indexBottomNavbarProvider);

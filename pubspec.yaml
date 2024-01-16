@@ -34,12 +34,13 @@ dependencies:
     sdk: flutter
   flutter_riverpod: ^2.4.9
   google_fonts: ^6.1.0
+  pedometer: ^4.0.1
+  provider: ^6.1.1
   riverpod: ^2.4.9
   riverpod_annotation: ^2.3.3
   riverpod_generator: ^2.3.9
   supabase: ^1.11.11
   supabase_flutter: ^1.10.25
-  sensors: ^2.0.3
 
 dev_dependencies:
   flutter_lints: ^2.0.0

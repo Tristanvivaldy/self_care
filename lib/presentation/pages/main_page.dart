@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:self_care/presentation/pages/bmi_mass.dart';
+import 'package:self_care/presentation/pages/healthy.dart';
+import 'package:self_care/presentation/pages/to_do_list.dart';
 import 'package:self_care/presentation/providers/user_data_provider.dart';
 
 class MainPage extends ConsumerWidget {
@@ -81,84 +84,59 @@ class WidgetContent extends ConsumerWidget {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.05,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                height: MediaQuery.of(context).size.height * 0.15,
-                width: MediaQuery.of(context).size.width * 0.35,
-                padding: const EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                  color: const Color(0xFF7BC950),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          const Icon(Icons.monitor_heart),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            "Heartbeat",
-                            style: GoogleFonts.inter(fontSize: 12),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.025,
-                      ),
-                      Text(
-                        "66",
-                        style: GoogleFonts.inter(
-                            fontSize: 24, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        "bpm",
-                        style: GoogleFonts.inter(fontSize: 12),
-                      ),
-                    ]),
+          Container(
+            height: MediaQuery.of(context).size.height * 0.15,
+            width: MediaQuery.of(context).size.width * 0.9,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              gradient: const LinearGradient(
+                colors: [
+                  Colors.cyan,
+                  Colors.black12,
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
               ),
-              Container(
-                height: MediaQuery.of(context).size.height * 0.15,
-                width: MediaQuery.of(context).size.width * 0.35,
-                padding: const EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                  color: const Color(0xFFFFA62B),
-                  borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.5),
+                  spreadRadius: 2,
+                  blurRadius: 9,
+                  offset: const Offset(0, 2),
                 ),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+              ],
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Mood Hari Ini!",
+                    style: GoogleFonts.gabriela(
+                      color: Colors.yellow,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.02,
+                  ),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Row(
-                        children: [
-                          const Icon(Icons.bloodtype),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            "Blood Pres.",
-                            style: GoogleFonts.inter(fontSize: 12),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.025,
-                      ),
-                      Text(
-                        "144/80",
-                        style: GoogleFonts.inter(
-                            fontSize: 23, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        "mmHg",
-                        style: GoogleFonts.inter(fontSize: 12),
-                      ),
-                    ]),
+                      EmojiWidget('😃'),
+                      SizedBox(width: 20),
+                      EmojiWidget('😢'),
+                      SizedBox(width: 20),
+                      EmojiWidget('😡'),
+                      SizedBox(width: 20),
+                      EmojiWidget('😌'),
+                    ],
+                  )
+                ],
               ),
-            ],
+            ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.05,
@@ -181,27 +159,80 @@ class WidgetContent extends ConsumerWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       color: const Color(0xFFEF946C)),
+                  child: GestureDetector(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ToDoListPage(),
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        Container(
+                            width: MediaQuery.of(context).size.width * 0.175,
+                            decoration: BoxDecoration(
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(20),
+                                  bottomLeft: Radius.circular(20),
+                                  topRight: Radius.circular(50),
+                                  bottomRight: Radius.circular(50),
+                                ),
+                                color:
+                                    const Color(0xFF664E4C).withOpacity(0.75))),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.05,
+                        ),
+                        Text(
+                          "To Do List",
+                          style: GoogleFonts.archivoBlack(
+                            color: Colors.white,
+                            fontSize: 20,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  height: MediaQuery.of(context).size.height * 0.1,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: const Color(0xFFEF946C)),
                   child: Row(
                     children: [
-                      Container(
-                          width: MediaQuery.of(context).size.width * 0.175,
-                          decoration: BoxDecoration(
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                bottomLeft: Radius.circular(20),
-                                topRight: Radius.circular(50),
-                                bottomRight: Radius.circular(50),
+                      GestureDetector(
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HealthyPage(),
+                          ),
+                        ),
+                        child: Row(
+                          children: [
+                            Container(
+                                width:
+                                    MediaQuery.of(context).size.width * 0.175,
+                                decoration: BoxDecoration(
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(20),
+                                      bottomLeft: Radius.circular(20),
+                                      topRight: Radius.circular(50),
+                                      bottomRight: Radius.circular(50),
+                                    ),
+                                    color: const Color(0xFF664E4C)
+                                        .withOpacity(0.75))),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.05,
+                            ),
+                            Text(
+                              "Walking",
+                              style: GoogleFonts.archivoBlack(
+                                color: Colors.white,
+                                fontSize: 20,
                               ),
-                              color:
-                                  const Color(0xFF664E4C).withOpacity(0.75))),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.05,
-                      ),
-                      Text(
-                        "To Do List",
-                        style: GoogleFonts.archivoBlack(
-                          color: Colors.white,
-                          fontSize: 20,
+                            )
+                          ],
                         ),
                       )
                     ],
@@ -215,57 +246,38 @@ class WidgetContent extends ConsumerWidget {
                       color: const Color(0xFFEF946C)),
                   child: Row(
                     children: [
-                      Container(
-                          width: MediaQuery.of(context).size.width * 0.175,
-                          decoration: BoxDecoration(
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                bottomLeft: Radius.circular(20),
-                                topRight: Radius.circular(50),
-                                bottomRight: Radius.circular(50),
-                              ),
-                              color:
-                                  const Color(0xFF664E4C).withOpacity(0.75))),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.05,
-                      ),
-                      Text(
-                        "Check My Health",
-                        style: GoogleFonts.archivoBlack(
-                          color: Colors.white,
-                          fontSize: 20,
+                      GestureDetector(
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const BMIPage(),
+                          ),
                         ),
-                      )
-                    ],
-                  ),
-                ),
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  height: MediaQuery.of(context).size.height * 0.1,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: const Color(0xFFEF946C)),
-                  child: Row(
-                    children: [
-                      Container(
-                          width: MediaQuery.of(context).size.width * 0.175,
-                          decoration: BoxDecoration(
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                bottomLeft: Radius.circular(20),
-                                topRight: Radius.circular(50),
-                                bottomRight: Radius.circular(50),
+                        child: Row(
+                          children: [
+                            Container(
+                                width:
+                                    MediaQuery.of(context).size.width * 0.175,
+                                decoration: BoxDecoration(
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(20),
+                                      bottomLeft: Radius.circular(20),
+                                      topRight: Radius.circular(50),
+                                      bottomRight: Radius.circular(50),
+                                    ),
+                                    color: const Color(0xFF664E4C)
+                                        .withOpacity(0.75))),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.05,
+                            ),
+                            Text(
+                              "BMI",
+                              style: GoogleFonts.archivoBlack(
+                                color: Colors.white,
+                                fontSize: 20,
                               ),
-                              color:
-                                  const Color(0xFF664E4C).withOpacity(0.75))),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.05,
-                      ),
-                      Text(
-                        "Manage My Money",
-                        style: GoogleFonts.archivoBlack(
-                          color: Colors.white,
-                          fontSize: 20,
+                            )
+                          ],
                         ),
                       )
                     ],
@@ -300,5 +312,19 @@ class CustomClipPath extends CustomClipper<Path> {
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
     return false;
+  }
+}
+
+class EmojiWidget extends StatelessWidget {
+  final String emoji;
+
+  const EmojiWidget(this.emoji);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      emoji,
+      style: const TextStyle(fontSize: 40),
+    );
   }
 }
