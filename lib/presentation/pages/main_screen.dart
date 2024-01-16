@@ -17,7 +17,7 @@ class MainScreen extends ConsumerWidget {
     final bodies = [
       const MainPage(),
       const ToDoListPage(),
-      HealthyPage(),
+      const HealthyPage(),
       const ProfilePage(),
     ];
     final indexBottomNavbar = ref.watch(indexBottomNavbarProvider);

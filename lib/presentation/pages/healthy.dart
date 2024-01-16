@@ -6,11 +6,13 @@ String formatDate(DateTime d) {
 }
 
 class HealthyPage extends StatefulWidget {
+  const HealthyPage({super.key});
+
   @override
-  _HealthyPageState createState() => _HealthyPageState();
+  HealthyPageState createState() => HealthyPageState();
 }
 
-class _HealthyPageState extends State<HealthyPage> {
+class HealthyPageState extends State<HealthyPage> {
   String _status = 'Not Walking';
   int _steps = 0;
   bool _isSimulating = false;
@@ -31,7 +33,7 @@ class _HealthyPageState extends State<HealthyPage> {
   }
 
   void _stopSimulation() async {
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
     setState(() {
       _status = 'stopped';
     });
@@ -40,7 +42,7 @@ class _HealthyPageState extends State<HealthyPage> {
 
   void _simulateWalking() async {
     while (_isSimulating) {
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(const Duration(seconds: 1));
       _stepCountController.add(StepCount(_steps + 1));
       setState(() {
         _steps += 1;

@@ -205,7 +205,7 @@ class WidgetContent extends ConsumerWidget {
                         onTap: () => Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HealthyPage(),
+                            builder: (context) => const HealthyPage(),
                           ),
                         ),
                         child: Row(
@@ -318,7 +318,7 @@ class CustomClipPath extends CustomClipper<Path> {
 class EmojiWidget extends StatelessWidget {
   final String emoji;
 
-  const EmojiWidget(this.emoji);
+  const EmojiWidget(this.emoji, {super.key});
 
   @override
   Widget build(BuildContext context) {
